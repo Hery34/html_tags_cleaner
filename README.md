@@ -1,18 +1,28 @@
 # html_tags_cleaner
 
-A new Flutter plugin project.
+A very easy-to-use plugin to remove html tags from a fetched text. Initially created to fix an issue encountered
+while fetching datas from a API developed in PHP.
 
-## Getting Started
+## Installation
 
-This project is a starting point for a Flutter
-[plug-in package](https://flutter.dev/developing-packages/),
-a specialized package that includes platform-specific implementation code for
-Android and/or iOS.
+Run this command :
 
-For help getting started with Flutter development, view the
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+```
+flutter pub add html_tags_cleaner
+```
 
-The plugin project was generated without specifying the `--platforms` flag, no platforms are currently supported.
-To add platforms, run `flutter create -t plugin --platforms <platforms> .` in this directory.
-You can also find a detailed instruction on how to add platforms in the `pubspec.yaml` at https://flutter.dev/docs/development/packages-and-plugins/developing-packages#plugin-platforms.
+## Example
+
+After runnning the below command, you should see this in your pubspec.yaml:
+
+![pubspec.yaml](/assets/pubspec.yaml.png)
+
+To use it, you must first import teh package
+
+![import](/assets/importing.png)
+
+And finally, to use it, you can do it this way :
+
+![import](/assets/use.png)
+
+This is a screenshot of the excpeted result :
