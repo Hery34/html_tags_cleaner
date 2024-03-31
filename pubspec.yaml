@@ -1,6 +1,6 @@
 name: html_tags_cleaner
 description: "A very simple and easy-to-use package to clean html tags from a string, simply by calling a method."
-version: 0.0.1
+version: 0.0.2
 homepage: https://github.com/Hery34/html_tags_cleaner.git
 
 environment:
