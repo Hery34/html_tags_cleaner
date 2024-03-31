@@ -1,29 +1,27 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:html_tags_cleaner/html_tags_cleaner.dart';
-import 'package:html_tags_cleaner/html_tags_cleaner_platform_interface.dart';
-import 'package:html_tags_cleaner/html_tags_cleaner_method_channel.dart';
-import 'package:plugin_platform_interface/plugin_platform_interface.dart';
-
-class MockHtmlTagsCleanerPlatform
-    with MockPlatformInterfaceMixin
-    implements HtmlTagsCleanerPlatform {
-
-  @override
-  Future<String?> getPlatformVersion() => Future.value('42');
-}
 
 void main() {
-  final HtmlTagsCleanerPlatform initialPlatform = HtmlTagsCleanerPlatform.instance;
+  group('HtmlTagsCleaner', () {
+    test('clean should remove HTML tags', () {
+      const input = 'This is a <br>test string';
+      const expected = 'This is a \ntest string';
+      final result = HtmlTagsCleaner.clean(input);
+      expect(result, expected);
+    });
 
-  test('$MethodChannelHtmlTagsCleaner is the default instance', () {
-    expect(initialPlatform, isInstanceOf<MethodChannelHtmlTagsCleaner>());
-  });
+    test('clean should handle nested HTLM tags', () {
+      const input = 'This <strong>is <br> a <bold>test<bold> string';
+      const expected = 'This is \n a test string';
+      final result = HtmlTagsCleaner.clean(input);
+      expect(result, expected);
+    });
 
-  test('getPlatformVersion', () async {
-    HtmlTagsCleaner htmlTagsCleanerPlugin = HtmlTagsCleaner();
-    MockHtmlTagsCleanerPlatform fakePlatform = MockHtmlTagsCleanerPlatform();
-    HtmlTagsCleanerPlatform.instance = fakePlatform;
-
-    expect(await htmlTagsCleanerPlugin.getPlatformVersion(), '42');
+    test('clean should handle nested HTML tags', () {
+      const input = 'This <bold>is a <span>test string';
+      const expected = 'This is a \ntest string';
+      final result = HtmlTagsCleaner.clean(input);
+      expect(result, expected);
+    });
   });
 }
