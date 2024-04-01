@@ -25,4 +25,6 @@ And finally, to use it, you can do it this way :
 
 ![import](/assets/use.png)
 
-This is a screenshot of the excpeted result :
+This is a screenshot of the expected result :
+
+![import](/assets/screenshot.jpeg)
